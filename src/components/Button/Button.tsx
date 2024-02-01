@@ -1,15 +1,15 @@
 import React from "react";
 
 export interface ButtonProps
-	extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-	text: string;
-	onClick?: () => void;
-}
+	extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
-const Button: React.FC<ButtonProps> = ({ text, onClick, ...props }) => {
+const Button: React.FC<ButtonProps> = (props) => {
 	return (
-		<button onClick={onClick} {...props}>
-			{text}
+		<button
+			className={`bg-primary text-onPrimary px-8 py-4 rounded-sm${props.className}`}
+			{...props}
+		>
+			{props.children}
 		</button>
 	);
 };
